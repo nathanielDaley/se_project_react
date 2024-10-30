@@ -11,3 +11,11 @@
   line-height: 24.8px;
   margin: 0;
 }
+
+.cards__list {
+  padding: 0;
+  margin: 35px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
