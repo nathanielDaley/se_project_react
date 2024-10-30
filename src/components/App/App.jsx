@@ -1,4 +1,5 @@
 import "./App.css";
+import Main from "../Main/Main.jsx";
 import Header from "../Header/Header.jsx";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="app">
       <div className="app__content">
         <Header />
+        <Main />
       </div>
     </div>
   );
