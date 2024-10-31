@@ -3,3 +3,9 @@
   font-weight: 700;
   src: url("../vendor/fonts/CabinetGrotesk-Bold.otf") format(truetype);
 }
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-weight: 500;
+  src: url("../vendor/fonts/CabinetGrotesk-Medium.otf") format(truetype);
+}
