@@ -35,10 +35,11 @@ export const defaultClothingItems = [
     weather: "cold",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
-  {
-    _id: 6,
-    name: "Peacock",
-    weather: "cold",
-    link: "https://images.unsplash.com/photo-1730216597753-1b8ac897bcc5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
 ];
+
+export const weatherApiKey = "29c6d0680a80c28b805cfaec4d0614f3";
+
+export const coordinates = {
+  latitude: 43.012798,
+  longitude: -88.235092,
+};
