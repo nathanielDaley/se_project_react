@@ -12,11 +12,13 @@ function ItemModal({ handleCloseClick, activeModal, card }) {
         >
           <img src={closeImg} alt="close" className="modal__close-icon" />
         </button>
-        <img src={card.link} alt={card.name} className="modal__image" />
-        <div className="modal__footer">
-          <h2 className="modal__caption">{card.name}</h2>
-          <p className="modal__weather">Weather: {card.weather}</p>
+        <div className="modal__image-container">
+          <img src={card.link} alt={card.name} className="modal__image" />
+          <h2 className="modal__caption modal__caption_type_image">
+            {card.name}
+          </h2>
         </div>
+        <p className="modal__weather">Weather: {card.weather}</p>
       </div>
     </div>
   );
