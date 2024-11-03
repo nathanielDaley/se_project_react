@@ -4,6 +4,7 @@ import Main from "../Main/Main.jsx";
 import Header from "../Header/Header.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
+import Footer from "../Footer/Footer.jsx";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 
@@ -50,6 +51,7 @@ function App() {
         />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
       </div>
+      <Footer />
       <ModalWithForm
         buttonText="Add garment"
         title="New garment"

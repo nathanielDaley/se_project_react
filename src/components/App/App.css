@@ -1,6 +1,9 @@
 .app {
   background-color: rgb(243, 243, 243);
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .app__content {
