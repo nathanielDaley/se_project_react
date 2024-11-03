@@ -50,14 +50,17 @@ function App() {
   return (
     <div className="app">
       <div className="app__content">
-        <Header
-          handleMobileClick={handleMobileClick}
-          handleAddGarmentClick={handleAddGarmentClick}
-          weatherData={weatherData}
-        />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <div className="app__container">
+          <Header
+            handleMobileClick={handleMobileClick}
+            handleAddGarmentClick={handleAddGarmentClick}
+            weatherData={weatherData}
+          />
+          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        </div>
+
+        <Footer />
       </div>
-      <Footer />
       <ModalWithForm
         buttonText="Add garment"
         title="New garment"
