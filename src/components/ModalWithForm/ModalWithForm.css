@@ -49,6 +49,8 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  opacity: 0.3;
+  z-index: 1;
 }
 
 .modal__form {
@@ -117,4 +119,26 @@
   background-color: black;
   border: none;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  .modal {
+    align-items: flex-end;
+  }
+
+  .modal__close {
+    opacity: 1;
+  }
+
+  .modal__title {
+    margin-bottom: 37px;
+    font-family: "Cabinet Grotesk", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  .modal__submit {
+    width: 100%;
+  }
 }

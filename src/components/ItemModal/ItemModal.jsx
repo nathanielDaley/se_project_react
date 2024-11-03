@@ -8,7 +8,7 @@ function ItemModal({ handleCloseClick, activeModal, card }) {
         <button
           onClick={handleCloseClick}
           type="button"
-          className="modal__close"
+          className="modal__close modal__close_type_item"
         >
           <img src={closeImg} alt="close" className="modal__close-icon" />
         </button>
