@@ -28,6 +28,7 @@ header {
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
+  background-color: rgb(243, 243, 243);
 }
 
 .header__user-container {
