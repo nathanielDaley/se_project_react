@@ -1,8 +1,9 @@
 @import url(../../vendor/fonts.css);
 
 header {
+  position: relative;
   display: flex;
-  padding: 32px 0 28px;
+  padding: 20px 0 28px;
   align-items: center;
 }
 
@@ -48,4 +49,41 @@ header {
 .header__avatar {
   width: 40px;
   height: 40px;
+}
+
+.header__mobile-button {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    display: block;
+    padding-bottom: 16px;
+  }
+
+  .header__date-and-location {
+    padding-top: 34px;
+  }
+
+  .header__add-clothes-button {
+    display: none;
+  }
+
+  .header__user-container {
+    display: none;
+  }
+
+  .header__mobile-button {
+    display: block;
+  }
 }

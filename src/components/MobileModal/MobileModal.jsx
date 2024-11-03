@@ -1,0 +1,38 @@
+import "./MobileModal.css";
+import avatar from "../../assets/avatar.png";
+import closeImg from "../../assets/close.svg";
+
+export default function MobileModal({
+  handleAddGarmentClick,
+  handleCloseClick,
+  activeModal,
+}) {
+  return (
+    <div
+      className={`modal${
+        activeModal === "mobile" ? " modal_opened" : ""
+      } modal_type_mobile`}
+    >
+      <div className="modal__content modal__content_type_mobile">
+        <button
+          onClick={handleCloseClick}
+          type="button"
+          className="modal__close modal__close_type_item"
+        >
+          <img src={closeImg} alt="close" className="modal__close-icon" />
+        </button>
+        <div className="modal__user-container">
+          <p className="modal__username">Terrence Tegegne</p>
+          <img src={avatar} alt="Terrence Tegegne" className="modal__avatar" />
+        </div>
+        <button
+          onClick={handleAddGarmentClick}
+          className="modal__add-clothes-button"
+          type="button"
+        >
+          + Add clothes
+        </button>
+      </div>
+    </div>
+  );
+}

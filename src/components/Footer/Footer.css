@@ -15,3 +15,9 @@
 .footer__date {
   margin: 0;
 }
+
+@media screen and (max-width: 500px) {
+  .footer {
+    margin: 0 16px 20px;
+  }
+}

@@ -5,6 +5,7 @@ import Header from "../Header/Header.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
+import MobileModal from "../MobileModal/MobileModal.jsx";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 
@@ -18,6 +19,10 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+
+  const handleMobileClick = () => {
+    setActiveModal("mobile");
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -46,6 +51,7 @@ function App() {
     <div className="app">
       <div className="app__content">
         <Header
+          handleMobileClick={handleMobileClick}
           handleAddGarmentClick={handleAddGarmentClick}
           weatherData={weatherData}
         />
@@ -107,6 +113,11 @@ function App() {
         handleCloseClick={closeActiveModal}
         activeModal={activeModal}
         card={selectedCard}
+      />
+      <MobileModal
+        handleAddGarmentClick={handleAddGarmentClick}
+        handleCloseClick={closeActiveModal}
+        activeModal={activeModal}
       />
     </div>
   );
