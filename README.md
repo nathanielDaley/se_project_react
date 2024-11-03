@@ -1,6 +1,6 @@
 # React + Vite
 
-# Project 3: Spots
+# Project 11: What to Wear
 
 ### Overview
 
