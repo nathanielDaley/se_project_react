@@ -1,3 +1,10 @@
+export const weatherApiKey = "29c6d0680a80c28b805cfaec4d0614f3";
+
+export const coordinates = {
+  latitude: 43.012798,
+  longitude: -88.235092,
+};
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -37,9 +44,74 @@ export const defaultClothingItems = [
   },
 ];
 
-export const weatherApiKey = "29c6d0680a80c28b805cfaec4d0614f3";
-
-export const coordinates = {
-  latitude: 43.012798,
-  longitude: -88.235092,
+export const defaultWeatherOptions = {
+  day: {
+    url: new URL("../assets/day/default.png", import.meta.url).href,
+  },
+  night: {
+    url: new URL("../assets/night/default.png", import.meta.url).href,
+  },
 };
+
+export const weatherOptions = [
+  {
+    isDay: true,
+    condition: "clear",
+    url: new URL("../assets/day/clear.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "clouds",
+    url: new URL("../assets/day/clouds.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "fog",
+    url: new URL("../assets/day/fog.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "snow",
+    url: new URL("../assets/day/snow.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "rain",
+    url: new URL("../assets/day/rain.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "thunderstorm",
+    url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "clear",
+    url: new URL("../assets/night/clear.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "clouds",
+    url: new URL("../assets/night/clouds.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "fog",
+    url: new URL("../assets/night/fog.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "snow",
+    url: new URL("../assets/night/snow.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "rain",
+    url: new URL("../assets/night/rain.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "thunderstorm",
+    url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
+  },
+];
