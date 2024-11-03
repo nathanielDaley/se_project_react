@@ -1,10 +1,10 @@
-# React + Vite
+## React + Vite
 
-# Project 11: What to Wear
+# Project 10: What to Wear
 
 ### Overview
 
-This is the eleventh project of the Software Engineering program at TripleTen. It was created using HTML, CSS, Javascript, React, and Vite, based on the design brief.
+This is the tenth project of the Software Engineering program at TripleTen. It was created using HTML, CSS, Javascript, React, and Vite, based on the design brief.
 
 View the project here:
 [https://nathanieldaley.github.io/se_project_react/](https://nathanieldaley.github.io/se_project_react/)
