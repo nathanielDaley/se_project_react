@@ -22,7 +22,7 @@ header {
 }
 
 .header__add-clothes-button {
-  margin: 0 20px 0 auto;
+  margin: 0 20px 0;
   border: none;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-size: 20px;

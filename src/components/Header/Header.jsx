@@ -2,6 +2,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import openMobile from "../../assets/mobile-menu.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -15,6 +16,7 @@ function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+      <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
       <button
         onClick={handleAddGarmentClick}
         className="header__add-clothes-button"
