@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  min-width: 56px;
   width: 56px;
   height: 28px;
   background: white;
@@ -71,4 +72,10 @@
 
 .switch__right-label_type_selected {
   color: white;
+}
+
+@media screen and (max-width: 540px) {
+  .switch__label {
+    display: none;
+  }
 }

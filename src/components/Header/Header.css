@@ -23,6 +23,7 @@ header {
 
 .header__add-clothes-button {
   margin: 0 20px 0;
+  padding: 0;
   border: none;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-size: 20px;
@@ -65,7 +66,7 @@ header {
   right: 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
   .header {
     display: block;
     padding-bottom: 16px;

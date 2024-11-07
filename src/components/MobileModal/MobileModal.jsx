@@ -1,12 +1,15 @@
 import "./MobileModal.css";
 import avatar from "../../assets/avatar.png";
 import closeImg from "../../assets/close.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 export default function MobileModal({
   handleAddGarmentClick,
   handleCloseClick,
   activeModal,
 }) {
+  window.addEventListener("resize", handleCloseClick);
+
   return (
     <div
       className={`modal${
@@ -32,6 +35,7 @@ export default function MobileModal({
         >
           + Add clothes
         </button>
+        <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
       </div>
     </div>
   );

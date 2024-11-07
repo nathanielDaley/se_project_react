@@ -28,7 +28,7 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
   .card {
     width: 164px;
     height: 165px;
