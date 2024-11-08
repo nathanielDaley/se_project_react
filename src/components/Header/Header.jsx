@@ -1,6 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/logo.svg";
-import avatar from "../../assets/avatar.png";
+import avatar from "../../assets/avatar-default.png";
 import openMobile from "../../assets/mobile-menu.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 

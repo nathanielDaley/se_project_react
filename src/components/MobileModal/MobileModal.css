@@ -1,3 +1,5 @@
+@import url(../../vendor/fonts.css);
+
 .modal_type_mobile {
   align-items: flex-start;
   background-color: transparent;

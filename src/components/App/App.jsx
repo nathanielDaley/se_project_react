@@ -6,6 +6,7 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import MobileModal from "../MobileModal/MobileModal.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
+import Profile from "../Profile/Profile.jsx";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
@@ -87,7 +88,10 @@ function App() {
                   />
                 }
               />
-              <Route path="/profile" element={<p>PROFILE</p>} />
+              <Route
+                path="/profile"
+                element={<Profile handleCardClick={handleCardClick} />}
+              />
             </Routes>
           </div>
 

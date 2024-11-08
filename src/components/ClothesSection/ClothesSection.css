@@ -1,0 +1,34 @@
+@import url(../../vendor/fonts.css);
+
+.clothes-section__header {
+  display: flex;
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.clothes-section__header-title {
+  margin: 0;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.8px;
+}
+
+.clothes-section__header-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24.8px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.clothes-section__items {
+  padding: 0;
+  margin: 35px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

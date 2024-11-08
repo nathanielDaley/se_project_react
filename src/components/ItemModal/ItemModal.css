@@ -1,3 +1,5 @@
+@import url(../../vendor/fonts.css);
+
 .modal_opened {
   visibility: visible;
   opacity: 1;
@@ -20,6 +22,7 @@
   padding: 20px;
   display: flex;
   gap: 28px;
+  min-width: 670px;
 }
 
 .modal__image-container {
@@ -60,11 +63,17 @@
   line-height: 24px;
 }
 
+@media screen and (max-width: 670px) {
+  .modal__content_type_image {
+    min-width: 0;
+  }
+}
+
 @media screen and (max-width: 540px) {
   .modal__content_type_image {
     display: block;
-    padding: 0;
     max-width: 343px;
+    min-width: 0;
   }
 
   .modal__image-container {
@@ -79,6 +88,10 @@
   }
 
   .modal__image {
+    margin-top: 20px;
+    min-width: 164px;
+    min-height: 165px;
+    height: 100%;
     max-width: 343px;
     width: 100%;
   }

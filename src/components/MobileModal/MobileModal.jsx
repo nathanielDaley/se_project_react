@@ -1,5 +1,5 @@
 import "./MobileModal.css";
-import avatar from "../../assets/avatar.png";
+import avatar from "../../assets/avatar-default.png";
 import closeImg from "../../assets/close.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 

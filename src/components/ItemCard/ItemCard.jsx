@@ -1,12 +1,12 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, handleCardClick }) {
+function ItemCard({ width, item, handleCardClick }) {
   const onCardClick = () => {
     handleCardClick(item);
   };
 
   return (
-    <li className="card">
+    <li className="card" style={{ width: width }}>
       <h2 className="card__name">{item.name}</h2>
       <img
         onClick={onCardClick}
