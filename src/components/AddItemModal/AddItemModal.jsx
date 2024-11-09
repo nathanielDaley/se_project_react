@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { addClothes, getClothes } from "../../utils/clothesApi";
+//import { deleteClothes } from "../../utils/clothesApi";
 
-function AddItemModal({ closeActiveModal, activeModal, onAddItem }) {
+function AddItemModal({ closeActiveModal, activeModal, setClothingItems }) {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [weatherType, setWeatherType] = useState("hot");
@@ -21,8 +23,35 @@ function AddItemModal({ closeActiveModal, activeModal, onAddItem }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onAddItem({ name, url, weatherType });
+
+    addClothes({ name: name, weather: weatherType, imageUrl: url })
+      .then((data) => {
+        setName("");
+        setUrl("");
+        setWeatherType("hot");
+
+        getClothes()
+          .then((data) => {
+            console.log(data);
+            setClothingItems(data);
+          })
+          .catch(console.error);
+
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
+
+  // const handleDeleteGarmentSubmit = (evt) => {
+  //   evt.preventDefault();
+
+  //   deleteClothes({ id: 17 })
+  //     .then((data) => {
+  //       console.log(data);
+  //       closeActiveModal();
+  //     })
+  //     .catch(console.error);
+  // };
 
   return (
     <ModalWithForm

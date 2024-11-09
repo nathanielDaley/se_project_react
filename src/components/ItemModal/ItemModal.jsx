@@ -13,7 +13,7 @@ function ItemModal({ handleCloseClick, activeModal, card }) {
           <img src={closeImg} alt="close" className="modal__close-icon" />
         </button>
         <div className="modal__image-container">
-          <img src={card.link} alt={card.name} className="modal__image" />
+          <img src={card.imageUrl} alt={card.name} className="modal__image" />
           <h2 className="modal__caption modal__caption_type_image">
             {card.name}
           </h2>
