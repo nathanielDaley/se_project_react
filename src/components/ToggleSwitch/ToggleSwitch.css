@@ -8,7 +8,6 @@
 
 .switch__label {
   box-sizing: border-box;
-  margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,10 +73,4 @@
 
 .switch__right-label_type_selected {
   color: white;
-}
-
-@media screen and (max-width: 540px) {
-  .switch__label {
-    display: none;
-  }
 }

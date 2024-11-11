@@ -19,20 +19,26 @@ function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
-      <button
-        onClick={handleAddGarmentClick}
-        className="header__add-clothes-button"
-        type="button"
-      >
-        + Add clothes
-      </button>
-      <Link to="/profile" className="header__profile-link">
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
-        </div>
-      </Link>
+      <div className="header__right-content">
+        <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
+        <button
+          onClick={handleAddGarmentClick}
+          className="header__add-clothes-button"
+          type="button"
+        >
+          + Add clothes
+        </button>
+        <Link to="/profile" className="header__profile-link">
+          <div className="header__user-container">
+            <p className="header__username">Terrence Tegegne</p>
+            <img
+              src={avatar}
+              alt="Terrence Tegegne"
+              className="header__avatar"
+            />
+          </div>
+        </Link>
+      </div>
       <button onClick={handleMobileClick} className="header__mobile-button">
         <img
           src={openMobile}

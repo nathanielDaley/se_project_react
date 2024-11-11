@@ -1,12 +1,10 @@
 @import url(../../vendor/fonts.css);
 
-.modal_type_mobile {
-  align-items: flex-start;
-  background-color: transparent;
-}
-
 .modal__content_type_mobile {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal__user-container {
@@ -31,7 +29,6 @@
 }
 
 .modal__add-clothes-button {
-  margin: 0 auto 60px;
   display: block;
   border: none;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
@@ -40,4 +37,8 @@
   line-height: 24px;
   cursor: pointer;
   background-color: white;
+}
+
+.modal__toggle-switch {
+  margin-top: 10px;
 }

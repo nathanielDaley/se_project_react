@@ -42,7 +42,9 @@ export default function MobileModal({
         >
           + Add clothes
         </button>
-        <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
+        <div className="modal__toggle-switch">
+          <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
+        </div>
       </div>
     </div>
   );

@@ -21,6 +21,12 @@ header {
   line-height: 24px;
 }
 
+.header__right-content {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
 .header__add-clothes-button {
   margin: 0 20px 0;
   padding: 0;
@@ -81,11 +87,7 @@ header {
     padding-top: 34px;
   }
 
-  .header__add-clothes-button {
-    display: none;
-  }
-
-  .header__user-container {
+  .header__right-content {
     display: none;
   }
 
