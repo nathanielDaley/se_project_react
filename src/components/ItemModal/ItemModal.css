@@ -56,11 +56,31 @@
   top: 17px;
 }
 
+.modal__sidebar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .modal__weather {
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+}
+
+.modal__delete-button {
+  margin: 0 0 12px;
+  padding: 0;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: rgba(255, 77, 0, 1);
+  background-color: white;
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 670px) {
@@ -108,5 +128,8 @@
 
   .modal__weather {
     padding: 0 0 0 12px;
+  }
+  .modal__delete-button {
+    margin: 0 0 0 12px;
   }
 }

@@ -7,15 +7,12 @@ import Footer from "../Footer/Footer.jsx";
 import MobileModal from "../MobileModal/MobileModal.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
-import {
-  getClothes,
-  addClothes,
-  deleteClothes,
-} from "../../utils/clothesApi.js";
+import { getClothes, deleteClothes } from "../../utils/clothesApi.js";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Routes, Route } from "react-router-dom";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -44,18 +41,33 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleDeleteGarmentClick = (evt) => {
+    evt.preventDefault();
+
+    setActiveModal("delete");
+  };
+
+  const handleDeleteGarmentSubmit = (evt) => {
+    evt.preventDefault();
+
+    deleteClothes(selectedCard._id)
+      .then((data) => {
+        console.log(data);
+        getClothes()
+          .then((data) => {
+            console.log(data);
+            setClothingItems(data);
+          })
+          .catch(console.error);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
   const handleToggleSwitchClick = () => {
     setTemperatureSwitchIsOn(!temperatureSwitchIsOn);
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-  };
-
-  const handleDeleteGarmentSubmit = () => {
-    deleteClothes({ id: 18 })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch(console.error);
   };
 
   const closeActiveModal = () => {
@@ -130,11 +142,17 @@ function App() {
           handleCloseClick={closeActiveModal}
           activeModal={activeModal}
           card={selectedCard}
+          handleDeleteGarmentClick={handleDeleteGarmentClick}
         />
         <MobileModal
           handleAddGarmentClick={handleAddGarmentClick}
           handleCloseClick={closeActiveModal}
           activeModal={activeModal}
+        />
+        <DeleteItemModal
+          onCloseClick={closeActiveModal}
+          activeModal={activeModal}
+          onDeleteGarmentSubmit={handleDeleteGarmentSubmit}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

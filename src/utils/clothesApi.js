@@ -27,7 +27,8 @@ function addClothes({ name, weather, imageUrl }) {
   return fetch(url, options).then(_checkResponse);
 }
 
-function deleteClothes({ id }) {
+function deleteClothes(id) {
+  console.log(id);
   const url = `${baseUrl}/items/${id}`;
   const options = {
     method: "DELETE",
