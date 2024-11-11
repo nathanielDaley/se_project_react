@@ -123,7 +123,7 @@
   border-radius: 4px;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 560px) {
   .modal_type_form {
     align-items: flex-end;
   }

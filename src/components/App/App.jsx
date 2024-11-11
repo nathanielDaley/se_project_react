@@ -7,12 +7,12 @@ import Footer from "../Footer/Footer.jsx";
 import MobileModal from "../MobileModal/MobileModal.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
 import { getClothes, deleteClothes } from "../../utils/clothesApi.js";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Routes, Route } from "react-router-dom";
-import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -37,8 +37,19 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleCloseItemModal = () => {
+    closeActiveModal();
+
+    //reset the selected card after the close transition completes
+    //so a broken image link doesn't appear
+    setTimeout(() => {
+      setSelectedCard({});
+    }, 400);
+  };
+
   const handleAddGarmentClick = () => {
     setActiveModal("add-garment");
+    console.log(selectedCard);
   };
 
   const handleDeleteGarmentClick = (evt) => {
@@ -59,6 +70,9 @@ function App() {
             setClothingItems(data);
           })
           .catch(console.error);
+
+        setSelectedCard({});
+
         closeActiveModal();
       })
       .catch(console.error);
@@ -139,7 +153,7 @@ function App() {
           setClothingItems={setClothingItems}
         />
         <ItemModal
-          handleCloseClick={closeActiveModal}
+          handleCloseClick={handleCloseItemModal}
           activeModal={activeModal}
           card={selectedCard}
           handleDeleteGarmentClick={handleDeleteGarmentClick}
@@ -150,7 +164,7 @@ function App() {
           activeModal={activeModal}
         />
         <DeleteItemModal
-          onCloseClick={closeActiveModal}
+          onCloseClick={handleCloseItemModal}
           activeModal={activeModal}
           onDeleteGarmentSubmit={handleDeleteGarmentSubmit}
         />

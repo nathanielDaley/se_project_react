@@ -71,7 +71,7 @@ header {
   color: black;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 560px) {
   .header {
     display: block;
     padding-bottom: 16px;

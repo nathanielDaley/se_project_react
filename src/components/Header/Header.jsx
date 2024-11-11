@@ -32,14 +32,14 @@ function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
           <p className="header__username">Terrence Tegegne</p>
           <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
         </div>
-        <button onClick={handleMobileClick} className="header__mobile-button">
-          <img
-            src={openMobile}
-            alt="open mobile modal"
-            className="header__mobile-open-image"
-          />
-        </button>
       </Link>
+      <button onClick={handleMobileClick} className="header__mobile-button">
+        <img
+          src={openMobile}
+          alt="open mobile modal"
+          className="header__mobile-open-image"
+        />
+      </button>
     </header>
   );
 }

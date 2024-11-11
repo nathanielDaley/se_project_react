@@ -89,7 +89,7 @@
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 560px) {
   .modal__content_type_image {
     display: block;
     max-width: 343px;
