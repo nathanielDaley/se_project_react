@@ -1,16 +1,9 @@
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
-
-const _checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-
-  return Promise.reject(`Error sending fetch request: ${res.status}`);
-};
+import { checkResponse, request } from "./weatherApi";
 
 function getClothes() {
-  return fetch(`${baseUrl}/items`).then(_checkResponse);
+  return request(`${baseUrl}/items`);
 }
 
 function addClothes({ name, weather, imageUrl }) {
@@ -24,7 +17,7 @@ function addClothes({ name, weather, imageUrl }) {
       imageUrl,
     }),
   };
-  return fetch(url, options).then(_checkResponse);
+  return request(url, options);
 }
 
 function deleteClothes(id) {
@@ -33,7 +26,7 @@ function deleteClothes(id) {
     method: "DELETE",
     headers: baseHeaders,
   };
-  return fetch(url, options).then(_checkResponse);
+  return request(url, options);
 }
 
 export { getClothes, addClothes, deleteClothes };

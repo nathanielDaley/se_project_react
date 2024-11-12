@@ -6,13 +6,17 @@ const checkResponse = (res) => {
   return Promise.reject(`Error sending fetch request: ${res.status}`);
 };
 
-export const getWeather = (coordinates, weatherApiKey) => {
-  return fetch(
+function request(url, options) {
+  return fetch(url, options).then(checkResponse);
+}
+
+const getWeather = (coordinates, weatherApiKey) => {
+  return request(
     `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=imperial&appid=${weatherApiKey}`
-  ).then(checkResponse);
+  );
 };
 
-export const filterWeatherData = (data) => {
+const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
   result.temperature = {
@@ -49,3 +53,5 @@ const isDay = ({ sunrise, sunset }) => {
 
   return sunrise < now && now < sunset;
 };
+
+export { checkResponse, request, getWeather, filterWeatherData };

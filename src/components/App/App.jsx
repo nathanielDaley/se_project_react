@@ -114,7 +114,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!activeModal) return; //stops the useEffect from continueing if there is no active modal
+    if (!activeModal) return; //stops the useEffect from continuing if there is no active modal
 
     // define functions inside useEffect to not lose the reference on rerendering
     const handleEscClose = (e) => {
