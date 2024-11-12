@@ -33,6 +33,7 @@
   color: rgba(255, 77, 0, 1);
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .modal__delete-cancel-button {
@@ -43,4 +44,5 @@
   line-height: 24px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }

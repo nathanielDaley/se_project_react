@@ -8,7 +8,11 @@ import MobileModal from "../MobileModal/MobileModal.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
-import { getClothes, deleteClothes } from "../../utils/clothesApi.js";
+import {
+  getClothes,
+  deleteClothes,
+  addClothes,
+} from "../../utils/clothesApi.js";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
@@ -49,7 +53,6 @@ function App() {
 
   const handleAddGarmentClick = () => {
     setActiveModal("add-garment");
-    console.log(selectedCard);
   };
 
   const handleDeleteGarmentClick = (evt) => {
@@ -63,10 +66,8 @@ function App() {
 
     deleteClothes(selectedCard._id)
       .then((data) => {
-        console.log(data);
         getClothes()
           .then((data) => {
-            console.log(data);
             setClothingItems(data);
           })
           .catch(console.error);
@@ -88,6 +89,14 @@ function App() {
     setActiveModal("");
   };
 
+  const updateClothingItems = (data) => {
+    const newClothingItems = [...clothingItems];
+
+    newClothingItems.push(data);
+
+    setClothingItems(newClothingItems);
+  };
+
   useEffect(() => {
     getWeather(coordinates, weatherApiKey)
       .then((data) => {
@@ -99,7 +108,6 @@ function App() {
 
     getClothes()
       .then((data) => {
-        console.log(data);
         setClothingItems(data);
       })
       .catch(console.error);
@@ -150,7 +158,8 @@ function App() {
         <AddItemModal
           closeActiveModal={closeActiveModal}
           activeModal={activeModal}
-          setClothingItems={setClothingItems}
+          addItem={addClothes}
+          updateClothingItems={updateClothingItems}
         />
         <ItemModal
           handleCloseClick={handleCloseItemModal}

@@ -28,7 +28,6 @@ function addClothes({ name, weather, imageUrl }) {
 }
 
 function deleteClothes(id) {
-  console.log(id);
   const url = `${baseUrl}/items/${id}`;
   const options = {
     method: "DELETE",

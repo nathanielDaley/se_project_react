@@ -1,20 +1,23 @@
 import { useState } from "react";
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { addClothes, getClothes } from "../../utils/clothesApi";
-//import { deleteClothes } from "../../utils/clothesApi";
 
-function AddItemModal({ closeActiveModal, activeModal, setClothingItems }) {
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+function AddItemModal({
+  closeActiveModal,
+  activeModal,
+  addItem,
+  updateClothingItems,
+}) {
+  const [itemName, setItemName] = useState("");
+  const [itemUrl, setItemUrl] = useState("");
   const [weatherType, setWeatherType] = useState("hot");
 
   const handleNameChange = (evt) => {
-    setName(evt.target.value);
+    setItemName(evt.target.value);
   };
 
   const handleUrlChange = (evt) => {
-    setUrl(evt.target.value);
+    setItemUrl(evt.target.value);
   };
 
   const handleWeatherTypeChange = (evt) => {
@@ -24,34 +27,18 @@ function AddItemModal({ closeActiveModal, activeModal, setClothingItems }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    addClothes({ name: name, weather: weatherType, imageUrl: url })
+    addItem({ name: itemName, weather: weatherType, imageUrl: itemUrl })
       .then((data) => {
-        setName("");
-        setUrl("");
-        setWeatherType("hot");
+        setItemName("");
+        setItemUrl("");
 
-        getClothes()
-          .then((data) => {
-            console.log(data);
-            setClothingItems(data);
-          })
-          .catch(console.error);
+        // add the new item to the array and rerender the cards
+        updateClothingItems(data);
 
         closeActiveModal();
       })
       .catch(console.error);
   };
-
-  // const handleDeleteGarmentSubmit = (evt) => {
-  //   evt.preventDefault();
-
-  //   deleteClothes({ id: 17 })
-  //     .then((data) => {
-  //       console.log(data);
-  //       closeActiveModal();
-  //     })
-  //     .catch(console.error);
-  // };
 
   return (
     <ModalWithForm
@@ -70,7 +57,7 @@ function AddItemModal({ closeActiveModal, activeModal, setClothingItems }) {
           placeholder="Name"
           minLength="1"
           maxLength="30"
-          value={name}
+          value={itemName}
           onChange={handleNameChange}
           required
         />
@@ -82,7 +69,7 @@ function AddItemModal({ closeActiveModal, activeModal, setClothingItems }) {
           className="modal__input"
           id="imageUrl"
           placeholder="Image URL"
-          value={url}
+          value={itemUrl}
           onChange={handleUrlChange}
           required
         />
