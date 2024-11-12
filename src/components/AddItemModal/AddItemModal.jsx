@@ -33,7 +33,7 @@ function AddItemModal({
         setItemUrl("");
 
         // add the new item to the array and rerender the cards
-        updateClothingItems(data);
+        updateClothingItems(data, "unshift");
 
         closeActiveModal();
       })

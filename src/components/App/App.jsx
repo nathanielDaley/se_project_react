@@ -66,11 +66,11 @@ function App() {
 
     deleteClothes(selectedCard._id)
       .then((data) => {
-        getClothes()
-          .then((data) => {
-            setClothingItems(data);
-          })
-          .catch(console.error);
+        const newClothingItems = clothingItems.filter(
+          (item) => item._id !== selectedCard._id
+        );
+
+        setClothingItems(newClothingItems);
 
         setSelectedCard({});
 
@@ -89,10 +89,10 @@ function App() {
     setActiveModal("");
   };
 
-  const updateClothingItems = (data) => {
+  const updateClothingItems = (data, method) => {
     const newClothingItems = [...clothingItems];
 
-    newClothingItems.unshift(data);
+    newClothingItems[method](data);
 
     setClothingItems(newClothingItems);
   };
