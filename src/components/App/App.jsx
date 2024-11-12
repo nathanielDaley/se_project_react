@@ -92,7 +92,7 @@ function App() {
   const updateClothingItems = (data) => {
     const newClothingItems = [...clothingItems];
 
-    newClothingItems.push(data);
+    newClothingItems.unshift(data);
 
     setClothingItems(newClothingItems);
   };
