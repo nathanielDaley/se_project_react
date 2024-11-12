@@ -113,6 +113,32 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    if (!activeModal) return; //stops the useEffect from continueing if there is no active modal
+
+    // define functions inside useEffect to not lose the reference on rerendering
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    const handleModalOutsideClick = (evt) => {
+      if (evt.target.classList.contains("modal_opened")) {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("click", handleModalOutsideClick);
+
+    return () => {
+      //add a clean up function for removing the listener
+      document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("click", handleModalOutsideClick);
+    };
+  }, [activeModal]);
+
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
