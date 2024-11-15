@@ -34,6 +34,13 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: text-shadow 0.4s linear;
+  text-shadow: none;
+}
+
+.modal__delete-confirm-button:hover {
+  text-shadow: 0 1px rgba(255, 77, 0, 1);
+  transition: text-shadow 0.4s linear;
 }
 
 .modal__delete-cancel-button {
@@ -45,4 +52,11 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  text-shadow: none;
+  transition: text-shadow 0.4s linear;
+}
+
+.modal__delete-cancel-button:hover {
+  text-shadow: 0 1px black;
+  transition: text-shadow 0.4s linear;
 }

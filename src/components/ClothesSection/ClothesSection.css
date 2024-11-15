@@ -24,6 +24,12 @@
   line-height: 24.8px;
   color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
+  transition: color 0.4s linear;
+}
+
+.clothes-section__header-button:hover {
+  color: rgba(0, 0, 0, 1);
+  transition: color 0.4s linear;
 }
 
 .clothes-section__items {

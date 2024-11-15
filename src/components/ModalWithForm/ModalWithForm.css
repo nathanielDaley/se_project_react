@@ -53,6 +53,12 @@
   padding: 0;
   opacity: 0.3;
   z-index: 1;
+  transition: opacity 0.4s linear;
+}
+
+.modal__close:hover {
+  opacity: 1;
+  transition: opacity 0.4s linear;
 }
 
 .modal__form {
@@ -121,6 +127,13 @@
   background-color: black;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.4s linear;
+}
+
+.modal__submit:hover {
+  background-color: rgb(38, 88, 252);
+  transition: color 0.4s linear;
 }
 
 @media screen and (max-width: 560px) {

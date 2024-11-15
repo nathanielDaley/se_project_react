@@ -81,6 +81,13 @@
   background-color: white;
   border: none;
   cursor: pointer;
+  transition: text-shadow 0.4s linear;
+  text-shadow: none;
+}
+
+.modal__delete-button:hover {
+  text-shadow: 0 1px rgba(255, 77, 0, 1);
+  transition: text-shadow 0.4s linear;
 }
 
 @media screen and (max-width: 670px) {

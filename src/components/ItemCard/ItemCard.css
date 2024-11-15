@@ -9,6 +9,13 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.4s linear;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 2px black;
+  transition: box-shadow 0.4s linear;
 }
 
 .card__name {
