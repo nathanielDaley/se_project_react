@@ -85,6 +85,12 @@ header {
   position: absolute;
   top: 18px;
   right: 0;
+  transition: box-shadow 0.4s linear;
+}
+
+.header__mobile-button:hover {
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.4s linear;
 }
 
 .header__profile-link {
