@@ -6,6 +6,7 @@ export default function Footer() {
       <a
         href="https://github.com/nathanielDaley/se_project_react"
         className="footer__link"
+        target="_blank"
       >
         <span
           data-content="Developed by Nathaniel Daley"
