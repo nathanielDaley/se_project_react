@@ -1,14 +1,4 @@
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-
-  return Promise.reject(`Error sending fetch request: ${res.status}`);
-};
-
-function request(url, options) {
-  return fetch(url, options).then(checkResponse);
-}
+import { request } from "./api";
 
 const getWeather = (coordinates, weatherApiKey) => {
   return request(
@@ -54,4 +44,4 @@ const isDay = ({ sunrise, sunset }) => {
   return sunrise < now && now < sunset;
 };
 
-export { checkResponse, request, getWeather, filterWeatherData };
+export { getWeather, filterWeatherData };

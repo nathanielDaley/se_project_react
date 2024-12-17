@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
-import { request } from "./weatherApi";
+import { request } from "./api";
 
 function getClothes() {
   return request(`${baseUrl}/items`);

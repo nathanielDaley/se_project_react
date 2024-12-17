@@ -108,7 +108,7 @@ function App() {
 
     getClothes()
       .then((data) => {
-        setClothingItems(data);
+        setClothingItems(data.clothingItems);
       })
       .catch(console.error);
   }, []);
