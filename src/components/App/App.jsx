@@ -8,6 +8,7 @@ import MobileModal from "../MobileModal/MobileModal.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import {
   getClothes,
   deleteClothes,
@@ -202,6 +203,10 @@ function App() {
           onCloseClick={handleCloseItemModal}
           activeModal={activeModal}
           onDeleteGarmentSubmit={handleDeleteGarmentSubmit}
+        />
+        <RegisterModal
+          closeActiveModal={closeActiveModal}
+          activeModal={activeModal}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
