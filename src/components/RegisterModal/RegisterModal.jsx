@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ closeActiveModal, activeModal }) {
+function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
   const [data, setData] = useState({
     username: "",
     avatar: "",
@@ -20,6 +20,7 @@ function RegisterModal({ closeActiveModal, activeModal }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    onSubmit(data);
   };
 
   return (

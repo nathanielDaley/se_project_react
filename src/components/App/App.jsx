@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+
 import Main from "../Main/Main.jsx";
 import Header from "../Header/Header.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
@@ -9,6 +10,8 @@ import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
+
 import {
   getClothes,
   deleteClothes,
@@ -18,7 +21,7 @@ import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Routes, Route } from "react-router-dom";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
+import * as auth from "../../utils/auth";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -100,6 +103,22 @@ function App() {
     setClothingItems(newClothingItems);
   };
 
+  const handleRegistration = ({
+    username,
+    avatar,
+    email,
+    password,
+    confirmPassword,
+  }) => {
+    console.log(username);
+    if (password === confirmPassword) {
+      auth.register(username, avatar, email, password).then(() => {
+        closeActiveModal();
+        setIsLoggedIn(true);
+      });
+    }
+  };
+
   useEffect(() => {
     getWeather(coordinates, weatherApiKey)
       .then((data) => {
@@ -120,14 +139,14 @@ function App() {
     if (!activeModal) return; //stops the useEffect from continuing if there is no active modal
 
     // define functions inside useEffect to not lose the reference on rerendering
-    const handleEscClose = (e) => {
-      if (e.key === "Escape") {
+    const handleEscClose = (event) => {
+      if (event.key === "Escape") {
         closeActiveModal();
       }
     };
 
-    const handleModalOutsideClick = (evt) => {
-      if (evt.target.classList.contains("modal_opened")) {
+    const handleModalOutsideClick = (event) => {
+      if (event.target.classList.contains("modal_opened")) {
         closeActiveModal();
       }
     };
@@ -211,6 +230,7 @@ function App() {
         <RegisterModal
           closeActiveModal={closeActiveModal}
           activeModal={activeModal}
+          onSubmit={handleRegistration}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
