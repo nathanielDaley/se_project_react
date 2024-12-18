@@ -33,6 +33,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [temperatureSwitchIsOn, setTemperatureSwitchIsOn] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleMobileClick = () => {
     setActiveModal("mobile");
@@ -171,7 +172,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isLoggedIn={true}>
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}

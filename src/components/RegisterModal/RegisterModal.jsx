@@ -7,6 +7,7 @@ function RegisterModal({ closeActiveModal, activeModal }) {
     avatar: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (event) => {
@@ -79,6 +80,19 @@ function RegisterModal({ closeActiveModal, activeModal }) {
           name="password"
           placeholder="Password"
           value={data.password}
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <label htmlFor="confirmPassword" className="modal__label">
+        Confirm Password
+        <input
+          type="password"
+          className="modal__input"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Password"
+          value={data.confirmPassword}
           onChange={handleChange}
           required
         />
