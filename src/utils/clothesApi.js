@@ -1,16 +1,14 @@
-const baseUrl = "http://localhost:3001";
-const baseHeaders = { "Content-Type": "application/json" };
-import { request } from "./api";
+import { BASE_URL, BASE_HEADERS, request } from "./api";
 
 function getClothes() {
-  return request(`${baseUrl}/items`);
+  return request(`${BASE_URL}/items`);
 }
 
 function addClothes({ name, weather, imageUrl }) {
-  const url = `${baseUrl}/items`;
+  const url = `${BASE_URL}/items`;
   const options = {
     method: "POST",
-    headers: baseHeaders,
+    headers: BASE_HEADERS,
     body: JSON.stringify({
       name,
       weather,
@@ -21,10 +19,10 @@ function addClothes({ name, weather, imageUrl }) {
 }
 
 function deleteClothes(id) {
-  const url = `${baseUrl}/items/${id}`;
+  const url = `${BASE_URL}/items/${id}`;
   const options = {
     method: "DELETE",
-    headers: baseHeaders,
+    headers: BASE_HEADERS,
   };
   return request(url, options);
 }
