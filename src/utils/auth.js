@@ -13,7 +13,7 @@ const register = (username, avatar, email, password) => {
   return request(url, options);
 };
 
-const authorize = (username, password) => {
+const authorize = (email, password) => {
   const url = `${BASE_URL}/signin`;
   const options = {
     method: "POST",

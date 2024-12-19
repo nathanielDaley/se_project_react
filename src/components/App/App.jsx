@@ -22,6 +22,7 @@ import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Routes, Route } from "react-router-dom";
 import * as auth from "../../utils/auth";
+import LoginModal from "../LoginModal/LoginModal.jsx";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -110,13 +111,19 @@ function App() {
     password,
     confirmPassword,
   }) => {
-    console.log(username);
     if (password === confirmPassword) {
       auth.register(username, avatar, email, password).then(() => {
-        closeActiveModal();
         setIsLoggedIn(true);
+        closeActiveModal();
       });
     }
+  };
+
+  const handleLogin = ({ email, password }) => {
+    auth.authorize(email, password).then((data) => {
+      localStorage.setItem("jwt", data.token);
+      closeActiveModal();
+    });
   };
 
   useEffect(() => {
@@ -231,6 +238,11 @@ function App() {
           closeActiveModal={closeActiveModal}
           activeModal={activeModal}
           onSubmit={handleRegistration}
+        />
+        <LoginModal
+          closeActiveModal={closeActiveModal}
+          activeModal={activeModal}
+          onSubmit={handleLogin}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

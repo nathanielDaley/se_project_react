@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ closeActiveModal, activeModal }) {
+function LoginModal({ closeActiveModal, activeModal, onSubmit }) {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -17,12 +17,13 @@ function LoginModal({ closeActiveModal, activeModal }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    onSubmit(data);
   };
 
   return (
     <ModalWithForm
-      buttonText="Submit"
-      title="Login"
+      buttonText="Log In"
+      title="Log In"
       isOpen={activeModal === "login"}
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}
