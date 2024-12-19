@@ -11,6 +11,7 @@ import Profile from "../Profile/Profile.jsx";
 import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
+import LoginModal from "../LoginModal/LoginModal.jsx";
 
 import {
   getClothes,
@@ -22,7 +23,6 @@ import { coordinates, weatherApiKey } from "../../utils/constants.js";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import { Routes, Route } from "react-router-dom";
 import * as auth from "../../utils/auth";
-import LoginModal from "../LoginModal/LoginModal.jsx";
 import { getToken, setToken } from "../../utils/token.js";
 
 function App() {
@@ -143,8 +143,14 @@ function App() {
       })
       .catch(console.error);
 
+    const jwt = getToken();
+
+    if (!jwt) {
+      return;
+    }
+
     auth
-      .validateLogin(getToken())
+      .validateLogin(jwt)
       .then(() => {
         setIsLoggedIn(true);
       })
