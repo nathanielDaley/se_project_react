@@ -24,4 +24,17 @@ const authorize = (email, password) => {
   return request(url, options);
 };
 
-export { register, authorize };
+const validateLogin = (token) => {
+  const url = `${BASE_URL}/users/me`;
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  };
+
+  return request(url, options);
+};
+
+export { register, authorize, validateLogin };

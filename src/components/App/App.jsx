@@ -23,6 +23,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { Routes, Route } from "react-router-dom";
 import * as auth from "../../utils/auth";
 import LoginModal from "../LoginModal/LoginModal.jsx";
+import { getToken, setToken } from "../../utils/token.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -121,7 +122,8 @@ function App() {
 
   const handleLogin = ({ email, password }) => {
     auth.authorize(email, password).then((data) => {
-      localStorage.setItem("jwt", data.token);
+      setToken(data.token);
+      setIsLoggedIn(true);
       closeActiveModal();
     });
   };
@@ -138,6 +140,13 @@ function App() {
     getClothes()
       .then((data) => {
         setClothingItems(data.clothingItems);
+      })
+      .catch(console.error);
+
+    auth
+      .validateLogin(getToken())
+      .then(() => {
+        setIsLoggedIn(true);
       })
       .catch(console.error);
   }, []);
