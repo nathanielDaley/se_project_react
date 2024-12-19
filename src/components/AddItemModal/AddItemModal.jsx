@@ -29,11 +29,11 @@ function AddItemModal({
 
     addItem({ name: itemName, weather: weatherType, imageUrl: itemUrl })
       .then((data) => {
+        // add the new item to the array and rerender the cards
+        updateClothingItems(data.clothingItem, "unshift");
+
         setItemName("");
         setItemUrl("");
-
-        // add the new item to the array and rerender the cards
-        updateClothingItems(data, "unshift");
 
         closeActiveModal();
       })

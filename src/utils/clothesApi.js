@@ -1,14 +1,24 @@
 import { BASE_URL, BASE_HEADERS, request } from "./api";
+import { getToken } from "./token";
 
 function getClothes() {
   return request(`${BASE_URL}/items`);
 }
 
 function addClothes({ name, weather, imageUrl }) {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject(`You are not authorized to perform that action.`);
+  }
+
   const url = `${BASE_URL}/items`;
   const options = {
     method: "POST",
-    headers: BASE_HEADERS,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       name,
       weather,
@@ -19,10 +29,19 @@ function addClothes({ name, weather, imageUrl }) {
 }
 
 function deleteClothes(id) {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject(`You are not authorized to perform that action.`);
+  }
+
   const url = `${BASE_URL}/items/${id}`;
   const options = {
     method: "DELETE",
-    headers: BASE_HEADERS,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
   };
   return request(url, options);
 }
