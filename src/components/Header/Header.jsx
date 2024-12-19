@@ -7,7 +7,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
+function Header({
+  handleMobileClick,
+  handleAddGarmentClick,
+  handleSignupClick,
+  handleLogInClick,
+  weatherData,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -24,24 +30,43 @@ function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
       </p>
       <div className="header__right-content">
         <ToggleSwitch leftLabel={"F"} rightLabel={"C"} />
-        <button
-          onClick={handleAddGarmentClick}
-          className="header__add-clothes-button"
-          type="button"
-        >
-          + Add clothes
-        </button>
-        {isLoggedIn && (
-          <Link to="/profile" className="header__profile-link">
-            <div className="header__user-container">
-              <p className="header__username">{currentUser.username}</p>
-              <img
-                src={currentUser.avatar}
-                alt={currentUser.username}
-                className="header__avatar"
-              />
-            </div>
-          </Link>
+        {isLoggedIn ? (
+          <>
+            <button
+              onClick={handleAddGarmentClick}
+              className="header__add-clothes-button"
+              type="button"
+            >
+              + Add clothes
+            </button>
+            <Link to="/profile" className="header__profile-link">
+              <div className="header__user-container">
+                <p className="header__username">{currentUser.username}</p>
+                <img
+                  src={currentUser.avatar}
+                  alt={currentUser.username}
+                  className="header__avatar"
+                />
+              </div>
+            </Link>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={handleSignupClick}
+              className="header__signup-button"
+              type="button"
+            >
+              Signup
+            </button>
+            <button
+              onClick={handleLogInClick}
+              className="header__log-in-button"
+              type="button"
+            >
+              Log In
+            </button>
+          </>
         )}
       </div>
       <button onClick={handleMobileClick} className="header__mobile-button">

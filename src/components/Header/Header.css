@@ -54,6 +54,44 @@ header {
   transition: text-shadow 0.4s linear;
 }
 
+.header__signup-button {
+  margin: 0 20px 0;
+  padding: 0;
+  border: none;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+  background-color: rgb(243, 243, 243);
+  transition: text-shadow 0.4s linear;
+  text-shadow: none;
+}
+
+.header__signup-button:hover {
+  text-shadow: 0 1px black;
+  transition: text-shadow 0.4s linear;
+}
+
+.header__log-in-button {
+  margin: 0 20px 0 0;
+  padding: 0;
+  border: none;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+  background-color: rgb(243, 243, 243);
+  transition: text-shadow 0.4s linear;
+  text-shadow: none;
+}
+
+.header__log-in-button:hover {
+  text-shadow: 0 1px black;
+  transition: text-shadow 0.4s linear;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;

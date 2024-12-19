@@ -71,6 +71,18 @@ function App() {
     setActiveModal("delete");
   };
 
+  const handleSignupClick = (evt) => {
+    evt.preventDefault();
+
+    setActiveModal("register");
+  };
+
+  const handleLogInClick = (evt) => {
+    evt.preventDefault();
+
+    setActiveModal("login");
+  };
+
   const handleDeleteGarmentSubmit = (evt) => {
     evt.preventDefault();
 
@@ -213,6 +225,8 @@ function App() {
               <Header
                 handleMobileClick={handleMobileClick}
                 handleAddGarmentClick={handleAddGarmentClick}
+                handleSignupClick={handleSignupClick}
+                handleLogInClick={handleLogInClick}
                 weatherData={weatherData}
               />
               <Routes>
