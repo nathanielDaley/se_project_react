@@ -142,10 +142,7 @@ function App() {
       auth
         .validateLogin(data.token)
         .then((data) => {
-          setCurrentUser({
-            username: data.user.name,
-            avatar: data.user.avatar,
-          });
+          setCurrentUser(data.user);
           setIsLoggedIn(true);
         })
         .catch(console.error);
@@ -178,7 +175,7 @@ function App() {
     auth
       .validateLogin(jwt)
       .then((data) => {
-        setCurrentUser({ username: data.user.name, avatar: data.user.avatar });
+        setCurrentUser(data.user);
         setIsLoggedIn(true);
       })
       .catch(console.error);
