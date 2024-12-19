@@ -4,12 +4,15 @@ import avatar from "../../assets/avatar-default.png";
 import openMobile from "../../assets/mobile-menu.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   return (
     <header className="header">
@@ -28,16 +31,18 @@ function Header({ handleMobileClick, handleAddGarmentClick, weatherData }) {
         >
           + Add clothes
         </button>
-        <Link to="/profile" className="header__profile-link">
-          <div className="header__user-container">
-            <p className="header__username">Terrence Tegegne</p>
-            <img
-              src={avatar}
-              alt="Terrence Tegegne"
-              className="header__avatar"
-            />
-          </div>
-        </Link>
+        {isLoggedIn && (
+          <Link to="/profile" className="header__profile-link">
+            <div className="header__user-container">
+              <p className="header__username">{currentUser.username}</p>
+              <img
+                src={currentUser.avatar}
+                alt={currentUser.username}
+                className="header__avatar"
+              />
+            </div>
+          </Link>
+        )}
       </div>
       <button onClick={handleMobileClick} className="header__mobile-button">
         <img

@@ -24,6 +24,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { Routes, Route } from "react-router-dom";
 import * as auth from "../../utils/auth";
 import { getToken, setToken } from "../../utils/token.js";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -39,6 +40,7 @@ function App() {
   const [temperatureSwitchIsOn, setTemperatureSwitchIsOn] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   const handleMobileClick = () => {
     setActiveModal("mobile");
@@ -124,6 +126,18 @@ function App() {
     auth.authorize(email, password).then((data) => {
       setToken(data.token);
       setIsLoggedIn(true);
+
+      auth
+        .validateLogin(data.token)
+        .then((data) => {
+          setCurrentUser({
+            username: data.user.name,
+            avatar: data.user.avatar,
+          });
+          setIsLoggedIn(true);
+        })
+        .catch(console.error);
+
       closeActiveModal();
     });
   };
@@ -151,7 +165,8 @@ function App() {
 
     auth
       .validateLogin(jwt)
-      .then(() => {
+      .then((data) => {
+        setCurrentUser({ username: data.user.name, avatar: data.user.avatar });
         setIsLoggedIn(true);
       })
       .catch(console.error);
@@ -192,73 +207,75 @@ function App() {
           handleToggleSwitchClick,
         }}
       >
-        <div className="app__content">
-          <div className="app__container">
-            <Header
-              handleMobileClick={handleMobileClick}
-              handleAddGarmentClick={handleAddGarmentClick}
-              weatherData={weatherData}
-            />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Main
-                    weatherData={weatherData}
-                    handleCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                  />
-                }
+        <CurrentUserContext.Provider value={{ currentUser, isLoggedIn }}>
+          <div className="app__content">
+            <div className="app__container">
+              <Header
+                handleMobileClick={handleMobileClick}
+                handleAddGarmentClick={handleAddGarmentClick}
+                weatherData={weatherData}
               />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
-                    <Profile
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Main
+                      weatherData={weatherData}
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
-                      handleAddGarmentClick={handleAddGarmentClick}
                     />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </div>
+                  }
+                />
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute isLoggedIn={isLoggedIn}>
+                      <Profile
+                        handleCardClick={handleCardClick}
+                        clothingItems={clothingItems}
+                        handleAddGarmentClick={handleAddGarmentClick}
+                      />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </div>
 
-          <Footer />
-        </div>
-        <AddItemModal
-          closeActiveModal={closeActiveModal}
-          activeModal={activeModal}
-          addItem={addClothes}
-          updateClothingItems={updateClothingItems}
-        />
-        <ItemModal
-          handleCloseClick={handleCloseItemModal}
-          activeModal={activeModal}
-          card={selectedCard}
-          handleDeleteGarmentClick={handleDeleteGarmentClick}
-        />
-        <MobileModal
-          handleAddGarmentClick={handleAddGarmentClick}
-          handleCloseClick={closeActiveModal}
-          activeModal={activeModal}
-        />
-        <DeleteItemModal
-          onCloseClick={handleCloseItemModal}
-          activeModal={activeModal}
-          onDeleteGarmentSubmit={handleDeleteGarmentSubmit}
-        />
-        <RegisterModal
-          closeActiveModal={closeActiveModal}
-          activeModal={activeModal}
-          onSubmit={handleRegistration}
-        />
-        <LoginModal
-          closeActiveModal={closeActiveModal}
-          activeModal={activeModal}
-          onSubmit={handleLogin}
-        />
+            <Footer />
+          </div>
+          <AddItemModal
+            closeActiveModal={closeActiveModal}
+            activeModal={activeModal}
+            addItem={addClothes}
+            updateClothingItems={updateClothingItems}
+          />
+          <ItemModal
+            handleCloseClick={handleCloseItemModal}
+            activeModal={activeModal}
+            card={selectedCard}
+            handleDeleteGarmentClick={handleDeleteGarmentClick}
+          />
+          <MobileModal
+            handleAddGarmentClick={handleAddGarmentClick}
+            handleCloseClick={closeActiveModal}
+            activeModal={activeModal}
+          />
+          <DeleteItemModal
+            onCloseClick={handleCloseItemModal}
+            activeModal={activeModal}
+            onDeleteGarmentSubmit={handleDeleteGarmentSubmit}
+          />
+          <RegisterModal
+            closeActiveModal={closeActiveModal}
+            activeModal={activeModal}
+            onSubmit={handleRegistration}
+          />
+          <LoginModal
+            closeActiveModal={closeActiveModal}
+            activeModal={activeModal}
+            onSubmit={handleLogin}
+          />
+        </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
