@@ -110,14 +110,18 @@ function App() {
       ? unlikeClothes(id)
           .then((updatedGarment) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedGarment : item))
+              cards.map((item) =>
+                item._id === id ? updatedGarment.clothingItem : item
+              )
             );
           })
           .catch(console.error)
       : likeClothes(id)
           .then((updatedGarment) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? updatedGarment : item))
+              cards.map((item) =>
+                item._id === id ? updatedGarment.clothingItem : item
+              )
             );
           })
           .catch(console.error);
@@ -179,8 +183,6 @@ function App() {
         const updatedUser = currentUser;
         updatedUser.name = data.name;
         updatedUser.avatar = data.avatar;
-
-        console.log(data);
 
         setCurrentUser(updatedUser);
 

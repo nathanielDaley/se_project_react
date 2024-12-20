@@ -4,8 +4,6 @@ import { getToken } from "./token";
 function updateUser(username, avatar) {
   const token = getToken();
 
-  console.log(`${username} ${avatar}`);
-
   if (!token) {
     return Promise.reject(`You are not authorized to perform that action.`);
   }

@@ -18,8 +18,15 @@
   transition: box-shadow 0.4s linear;
 }
 
-.card__name {
+.card__title {
   position: absolute;
+  display: flex;
+  top: 15px;
+  align-items: center;
+  gap: 4px;
+}
+
+.card__name {
   top: 15px;
   margin: 0;
   background-color: white;
@@ -30,6 +37,37 @@
   color: rgba(0, 0, 0, 0.6);
   padding: 2px 12px;
   border-radius: 4px;
+}
+
+.card__like-toggle {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.card__like-toggle_unliked {
+  background-image: url(../../assets/heart-icon.svg);
+  opacity: 0.6;
+  transition: opacity linear 0.2s;
+}
+
+.card__like-toggle_unliked:hover {
+  opacity: 1;
+  transition: opacity linear 0.2s;
+}
+
+.card__like-toggle_liked {
+  background-image: url(../../assets/heart-icon-liked.svg);
+  opacity: 1;
+}
+
+.card__like-toggle_liked:hover {
+  opacity: 0.6;
+  transition: opacity linear 0.2s;
 }
 
 .card__image {

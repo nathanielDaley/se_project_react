@@ -73,7 +73,7 @@ function unlikeClothes(id) {
 
   const url = `${BASE_URL}/items/${id}/likes`;
   const options = {
-    method: "DEL",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,

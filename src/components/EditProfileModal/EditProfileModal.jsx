@@ -19,7 +19,6 @@ function EditProfileModal({ closeActiveModal, activeModal, onSubmit }) {
   };
 
   const handleSubmit = (event) => {
-    console.log(data);
     event.preventDefault();
     onSubmit(data);
   };
