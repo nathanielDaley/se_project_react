@@ -12,6 +12,7 @@ import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 
 import {
   getClothes,
@@ -25,6 +26,7 @@ import { Routes, Route } from "react-router-dom";
 import * as auth from "../../utils/auth";
 import { getToken, setToken } from "../../utils/token.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+import { updateUser } from "../../utils/userApi.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -149,6 +151,22 @@ function App() {
 
       closeActiveModal();
     });
+  };
+
+  const handleEditProfile = ({ username, avatar }) => {
+    updateUser(username, avatar)
+      .then((data) => {
+        const updatedUser = currentUser;
+        updatedUser.name = data.name;
+        updatedUser.avatar = data.avatar;
+
+        console.log(data);
+
+        setCurrentUser(updatedUser);
+
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -285,6 +303,11 @@ function App() {
             closeActiveModal={closeActiveModal}
             activeModal={activeModal}
             onSubmit={handleLogin}
+          />
+          <EditProfileModal
+            closeActiveModal={closeActiveModal}
+            activeModal={activeModal}
+            onSubmit={handleEditProfile}
           />
         </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>

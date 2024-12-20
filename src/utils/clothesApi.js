@@ -1,4 +1,4 @@
-import { BASE_URL, BASE_HEADERS, request } from "./api";
+import { BASE_URL, request } from "./api";
 import { getToken } from "./token";
 
 function getClothes() {
