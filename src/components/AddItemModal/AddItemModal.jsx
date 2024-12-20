@@ -12,20 +12,20 @@ function AddItemModal({
   const [itemUrl, setItemUrl] = useState("");
   const [weatherType, setWeatherType] = useState("hot");
 
-  const handleNameChange = (evt) => {
-    setItemName(evt.target.value);
+  const handleNameChange = (event) => {
+    setItemName(event.target.value);
   };
 
-  const handleUrlChange = (evt) => {
-    setItemUrl(evt.target.value);
+  const handleUrlChange = (event) => {
+    setItemUrl(event.target.value);
   };
 
-  const handleWeatherTypeChange = (evt) => {
-    setWeatherType(evt.target.value);
+  const handleWeatherTypeChange = (event) => {
+    setWeatherType(event.target.value);
   };
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
     addItem({ name: itemName, weather: weatherType, imageUrl: itemUrl })
       .then((data) => {

@@ -67,26 +67,26 @@ function App() {
     setActiveModal("add-garment");
   };
 
-  const handleDeleteGarmentClick = (evt) => {
-    evt.preventDefault();
+  const handleDeleteGarmentClick = (event) => {
+    event.preventDefault();
 
     setActiveModal("delete");
   };
 
-  const handleSignupClick = (evt) => {
-    evt.preventDefault();
+  const handleSignupClick = (event) => {
+    event.preventDefault();
 
     setActiveModal("register");
   };
 
-  const handleLogInClick = (evt) => {
-    evt.preventDefault();
+  const handleLogInClick = (event) => {
+    event.preventDefault();
 
     setActiveModal("login");
   };
 
-  const handleDeleteGarmentSubmit = (evt) => {
-    evt.preventDefault();
+  const handleDeleteGarmentSubmit = (event) => {
+    event.preventDefault();
 
     deleteClothes(selectedCard._id)
       .then((data) => {
