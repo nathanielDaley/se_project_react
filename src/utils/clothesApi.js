@@ -46,7 +46,7 @@ function deleteClothes(id) {
   return request(url, options);
 }
 
-function likeClothes(id, token) {
+function likeClothes(id) {
   const token = getToken();
 
   if (!token) {
@@ -64,7 +64,7 @@ function likeClothes(id, token) {
   return request(url, options);
 }
 
-function unlikeClothes(id, token) {
+function unlikeClothes(id) {
   const token = getToken();
 
   if (!token) {
