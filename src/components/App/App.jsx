@@ -18,6 +18,8 @@ import {
   getClothes,
   deleteClothes,
   addClothes,
+  unlikeClothes,
+  likeClothes,
 } from "../../utils/clothesApi.js";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi.js";
 import { coordinates, weatherApiKey } from "../../utils/constants.js";
@@ -43,6 +45,18 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+  const updateClothingItems = (data, method) => {
+    const newClothingItems = [...clothingItems];
+
+    newClothingItems[method](data);
+
+    setClothingItems(newClothingItems);
+  };
 
   const handleMobileClick = () => {
     setActiveModal("mobile");
@@ -73,18 +87,6 @@ function App() {
     setActiveModal("delete");
   };
 
-  const handleSignupClick = (event) => {
-    event.preventDefault();
-
-    setActiveModal("register");
-  };
-
-  const handleLogInClick = (event) => {
-    event.preventDefault();
-
-    setActiveModal("login");
-  };
-
   const handleDeleteGarmentSubmit = (event) => {
     event.preventDefault();
 
@@ -103,22 +105,40 @@ function App() {
       .catch(console.error);
   };
 
+  const handleToggleLikeGarment = ({ id, isLiked }) => {
+    isLiked
+      ? unlikeClothes(id)
+          .then((updatedGarment) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedGarment : item))
+            );
+          })
+          .catch(console.error)
+      : likeClothes(id)
+          .then((updatedGarment) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedGarment : item))
+            );
+          })
+          .catch(console.error);
+  };
+
+  const handleSignupClick = (event) => {
+    event.preventDefault();
+
+    setActiveModal("register");
+  };
+
+  const handleLogInClick = (event) => {
+    event.preventDefault();
+
+    setActiveModal("login");
+  };
+
   const handleToggleSwitchClick = () => {
     setTemperatureSwitchIsOn(!temperatureSwitchIsOn);
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-  };
-
-  const closeActiveModal = () => {
-    setActiveModal("");
-  };
-
-  const updateClothingItems = (data, method) => {
-    const newClothingItems = [...clothingItems];
-
-    newClothingItems[method](data);
-
-    setClothingItems(newClothingItems);
   };
 
   const handleRegistration = ({
@@ -252,6 +272,7 @@ function App() {
                       weatherData={weatherData}
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
+                      onToggleLike={handleToggleLikeGarment}
                     />
                   }
                 />

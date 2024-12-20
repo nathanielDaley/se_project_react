@@ -9,7 +9,7 @@ function addClothes({ name, weather, imageUrl }) {
   const token = getToken();
 
   if (!token) {
-    return Promise.reject(`You are not authorized to perform that action.`);
+    return Promise.reject("You are not authorized to perform that action.");
   }
 
   const url = `${BASE_URL}/items`;
@@ -32,7 +32,7 @@ function deleteClothes(id) {
   const token = getToken();
 
   if (!token) {
-    return Promise.reject(`You are not authorized to perform that action.`);
+    return Promise.reject("You are not authorized to perform that action.");
   }
 
   const url = `${BASE_URL}/items/${id}`;
@@ -46,4 +46,40 @@ function deleteClothes(id) {
   return request(url, options);
 }
 
-export { getClothes, addClothes, deleteClothes };
+function likeClothes(id, token) {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject("You are not authorized to perform that action.");
+  }
+
+  const url = `${BASE_URL}/items/${id}/likes`;
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  };
+  return request(url, options);
+}
+
+function unlikeClothes(id, token) {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject("You are not authorized to perform that action.");
+  }
+
+  const url = `${BASE_URL}/items/${id}/likes`;
+  const options = {
+    method: "DEL",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  };
+  return request(url, options);
+}
+
+export { getClothes, addClothes, deleteClothes, likeClothes, unlikeClothes };

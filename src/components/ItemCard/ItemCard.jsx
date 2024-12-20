@@ -1,6 +1,6 @@
 import "./ItemCard.css";
 
-function ItemCard({ width, item, handleCardClick }) {
+function ItemCard({ width, item, handleCardClick, onToggleLike }) {
   const onCardClick = () => {
     handleCardClick(item);
   };
