@@ -4,10 +4,15 @@
 
 ### Overview
 
-This is the tenth project of the Software Engineering program at TripleTen. It was created using HTML, CSS, Javascript, React, and Vite, based on the design brief.
+This is the front end of the What to Wear web application. It retrieves weather information from the [Open weather map api](https://api.openweathermap.org) and gives suggestion on what clothing to wear on the data retrieved.
+
+Users can register, login, logout, update user information and add, delete, and like or unlike clothing items.
+User must be logged in to logout, update user information, and manage clothing items.
+
+User and clothing item api requests are sent to my custom back end project [se_project_express](https://github.com/nathanielDaley/se_project_express).
 
 View the project here:
-[https://nathanieldaley.github.io/se_project_react/](https://nathanieldaley.github.io/se_project_react/)
+[WTWR Github](https://nathanieldaley.github.io/se_project_react/)
 
 **Figma**
 
@@ -16,6 +21,16 @@ View the project here:
 **Images**
 
 - Images provided via the Figma above
+
+## How to run locally
+
+Clone the [Frontend repository](https://nathanieldaley.github.io/se_project_react/)
+Clone the [Backend repository](https://github.com/nathanielDaley/se_project_express)
+Install npm and node
+In a terminal open the local frontend root folder
+Run 'npm run dev'
+In another terminal open the local backend root folder
+Run 'npm run dev'
 
 ## Project features
 
