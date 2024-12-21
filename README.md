@@ -27,9 +27,9 @@ View the project here:
 - Clone the [Frontend repository](https://nathanieldaley.github.io/se_project_react/)
 - Clone the [Backend repository](https://github.com/nathanielDaley/se_project_express)
 - Install npm and node
-- In a terminal open the local frontend root folder
-- Run 'npm run dev'
 - In another terminal open the local backend root folder
+- Run 'npm run dev'
+- In a terminal open the local frontend root folder
 - Run 'npm run dev'
 
 ## Project features
