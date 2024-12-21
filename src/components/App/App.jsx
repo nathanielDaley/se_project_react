@@ -139,6 +139,21 @@ function App() {
     setActiveModal("login");
   };
 
+  const handleEditProfileClick = (event) => {
+    event.preventDefault();
+    console.log("test");
+
+    setActiveModal("edit-profile");
+  };
+
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+
+    localStorage.removeItem("jwt");
+
+    setIsLoggedIn(false);
+  };
+
   const handleToggleSwitchClick = () => {
     setTemperatureSwitchIsOn(!temperatureSwitchIsOn);
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -286,6 +301,8 @@ function App() {
                         handleCardClick={handleCardClick}
                         clothingItems={clothingItems}
                         handleAddGarmentClick={handleAddGarmentClick}
+                        handleEditProfileClick={handleEditProfileClick}
+                        handleLogoutClick={handleLogoutClick}
                       />
                     </ProtectedRoute>
                   }
