@@ -32,10 +32,10 @@ function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="username" className="modal__label">
+      <label htmlFor="register-username" className="modal__label">
         Username
         <input
-          id="username"
+          id="register-username"
           name="username"
           required
           placeholder="Name"
@@ -47,12 +47,12 @@ function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
           className="modal__input"
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="register-avatar" className="modal__label">
         Avatar
         <input
           type="url"
           className="modal__input"
-          id="avatar"
+          id="register-avatar"
           name="avatar"
           placeholder="Avatar URL"
           value={data.avatar}
@@ -60,12 +60,12 @@ function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
           required
         />
       </label>
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="register-email" className="modal__label">
         Email
         <input
           type="email"
           className="modal__input"
-          id="email"
+          id="register-email"
           name="email"
           placeholder="Email"
           value={data.email}
@@ -73,12 +73,12 @@ function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
           required
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="register-password" className="modal__label">
         Password
         <input
           type="password"
           className="modal__input"
-          id="password"
+          id="register-password"
           name="password"
           placeholder="Password"
           value={data.password}
@@ -86,12 +86,12 @@ function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
           required
         />
       </label>
-      <label htmlFor="confirmPassword" className="modal__label">
+      <label htmlFor="register-confirmPassword" className="modal__label">
         Confirm Password
         <input
           type="password"
           className="modal__input"
-          id="confirmPassword"
+          id="register-confirmPassword"
           name="confirmPassword"
           placeholder="Password"
           value={data.confirmPassword}

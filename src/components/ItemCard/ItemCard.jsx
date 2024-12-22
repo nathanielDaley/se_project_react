@@ -22,7 +22,7 @@ function ItemCard({ width, item, handleCardClick, onToggleLike }) {
         {isLoggedIn && (
           <button
             type="button"
-            class={`card__like-toggle ${
+            className={`card__like-toggle ${
               isLiked ? "card__like-toggle_liked" : "card__like-toggle_unliked"
             }`}
             onClick={handleToggleLike}
