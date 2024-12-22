@@ -8,7 +8,6 @@ function ItemCard({ width, item, handleCardClick, onToggleLike }) {
 
   const onCardClick = () => {
     handleCardClick(item);
-    console.log(item);
   };
 
   const handleToggleLike = (event) => {

@@ -8,8 +8,6 @@ const register = (username, avatar, email, password) => {
     body: JSON.stringify({ name: username, avatar, email, password }),
   };
 
-  console.log(options);
-
   return request(url, options);
 };
 

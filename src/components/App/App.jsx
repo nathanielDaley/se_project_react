@@ -141,7 +141,6 @@ function App() {
 
   const handleEditProfileClick = (event) => {
     event.preventDefault();
-    console.log("test");
 
     setActiveModal("edit-profile");
   };
