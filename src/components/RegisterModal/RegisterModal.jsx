@@ -2,7 +2,12 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
-function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
+function RegisterModal({
+  closeActiveModal,
+  activeModal,
+  onSubmit,
+  handleCancel,
+}) {
   const [data, setData] = useState({
     username: "",
     avatar: "",
@@ -27,10 +32,12 @@ function RegisterModal({ closeActiveModal, activeModal, onSubmit }) {
   return (
     <ModalWithForm
       buttonText="Sign Up"
+      cancelButtonText="or Log In"
       title="Sign Up"
       isOpen={activeModal === "register"}
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}
+      onCancel={handleCancel}
     >
       <label htmlFor="register-username" className="modal__label">
         Username

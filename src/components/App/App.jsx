@@ -174,6 +174,10 @@ function App() {
     }
   };
 
+  const handleCancelRegister = () => {
+    setActiveModal("login");
+  };
+
   const handleLogin = ({ email, password }) => {
     auth.authorize(email, password).then((data) => {
       setToken(data.token);
@@ -189,6 +193,10 @@ function App() {
 
       closeActiveModal();
     });
+  };
+
+  const handleCancelLogin = () => {
+    setActiveModal("register");
   };
 
   const handleEditProfile = ({ username, avatar }) => {
@@ -337,11 +345,13 @@ function App() {
             closeActiveModal={closeActiveModal}
             activeModal={activeModal}
             onSubmit={handleRegistration}
+            handleCancel={handleCancelRegister}
           />
           <LoginModal
             closeActiveModal={closeActiveModal}
             activeModal={activeModal}
             onSubmit={handleLogin}
+            handleCancel={handleCancelLogin}
           />
           <EditProfileModal
             closeActiveModal={closeActiveModal}
