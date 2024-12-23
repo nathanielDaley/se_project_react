@@ -181,17 +181,15 @@ function App() {
   const handleLogin = ({ email, password }) => {
     auth.authorize(email, password).then((data) => {
       setToken(data.token);
-      setIsLoggedIn(true);
 
       auth
         .validateLogin(data.token)
         .then((data) => {
           setCurrentUser(data.user);
           setIsLoggedIn(true);
+          closeActiveModal();
         })
         .catch(console.error);
-
-      closeActiveModal();
     });
   };
 
