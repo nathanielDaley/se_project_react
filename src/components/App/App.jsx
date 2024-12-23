@@ -150,6 +150,8 @@ function App() {
 
     localStorage.removeItem("jwt");
 
+    setCurrentUser({});
+
     setIsLoggedIn(false);
   };
 
