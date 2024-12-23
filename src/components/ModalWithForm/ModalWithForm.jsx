@@ -4,12 +4,12 @@ import closeImg from "../../assets/close.svg";
 function ModalWithForm({
   children,
   buttonText,
-  cancelButtonText,
+  alternativeButtonText,
   title,
   isOpen,
   handleCloseClick,
   onSubmit,
-  onCancel,
+  onAlternative,
 }) {
   return (
     <div className={`modal${isOpen ? " modal_opened" : ""} modal_type_form`}>
@@ -28,13 +28,13 @@ function ModalWithForm({
             <button className="modal__submit" type="submit">
               {buttonText}
             </button>
-            {cancelButtonText && (
+            {alternativeButtonText && (
               <button
-                onClick={onCancel}
-                className="modal__cancel"
+                onClick={onAlternative}
+                className="modal__alternative"
                 type="button"
               >
-                {cancelButtonText}
+                {alternativeButtonText}
               </button>
             )}
           </div>

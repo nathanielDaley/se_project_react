@@ -174,7 +174,7 @@ function App() {
     }
   };
 
-  const handleCancelRegister = () => {
+  const handleAlternativeRegisterClick = () => {
     setActiveModal("login");
   };
 
@@ -193,7 +193,7 @@ function App() {
     });
   };
 
-  const handleCancelLogin = () => {
+  const handleAlternativeLoginClick = () => {
     setActiveModal("register");
   };
 
@@ -343,13 +343,13 @@ function App() {
             closeActiveModal={closeActiveModal}
             activeModal={activeModal}
             onSubmit={handleRegistration}
-            handleCancel={handleCancelRegister}
+            onAlternative={handleAlternativeRegisterClick}
           />
           <LoginModal
             closeActiveModal={closeActiveModal}
             activeModal={activeModal}
             onSubmit={handleLogin}
-            handleCancel={handleCancelLogin}
+            onAlternative={handleAlternativeLoginClick}
           />
           <EditProfileModal
             closeActiveModal={closeActiveModal}

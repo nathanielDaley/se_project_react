@@ -6,7 +6,7 @@ function RegisterModal({
   closeActiveModal,
   activeModal,
   onSubmit,
-  handleCancel,
+  onAlternative,
 }) {
   const [data, setData] = useState({
     username: "",
@@ -32,12 +32,12 @@ function RegisterModal({
   return (
     <ModalWithForm
       buttonText="Sign Up"
-      cancelButtonText="or Log In"
+      alternativeButtonText="or Log In"
       title="Sign Up"
       isOpen={activeModal === "register"}
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}
-      onCancel={handleCancel}
+      onAlternative={onAlternative}
     >
       <label htmlFor="register-username" className="modal__label">
         Username
