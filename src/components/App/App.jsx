@@ -169,9 +169,8 @@ function App() {
     confirmPassword,
   }) => {
     if (password === confirmPassword) {
-      auth.register(username, avatar, email, password).then(() => {
-        setIsLoggedIn(true);
-        closeActiveModal();
+      auth.register(username, avatar, email, password).then((data) => {
+        handleLogin({ email, password });
       });
     }
   };
