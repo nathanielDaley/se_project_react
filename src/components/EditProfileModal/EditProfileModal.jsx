@@ -24,7 +24,10 @@ function EditProfileModal({ closeActiveModal, activeModal, onSubmit }) {
   };
 
   useEffect(() => {
-    setData({ username: currentUser.name, avatar: currentUser.avatar });
+    setData({
+      username: currentUser.name || "",
+      avatar: currentUser.avatar || "",
+    });
   }, [currentUser]);
 
   return (
