@@ -6,7 +6,7 @@ https://project-wtwr.jumpingcrab.com/
 
 ### Overview
 
-This is the front end of the What to Wear web application. It retrieves weather information from the [Open weather map api](https://api.openweathermap.org) and gives suggestions on what clothing to wear based on the data retrieved.
+This is the front end of the [What to Wear](https://project-wtwr.jumpingcrab.com/) web application. It retrieves weather information from the [Open weather map api](https://api.openweathermap.org) and gives suggestions on what clothing to wear based on the data retrieved.
 
 Users can register, login, logout, update user information and add, delete, and like or unlike clothing items.
 Users must be logged in to logout, update user information, and manage clothing items.
