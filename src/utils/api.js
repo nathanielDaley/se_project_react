@@ -1,4 +1,7 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.project-wtwr.jumpingcrab.com"
+    : "http://localhost:3001";
 const BASE_HEADERS = { "Content-Type": "application/json" };
 
 const checkResponse = (res) => {
